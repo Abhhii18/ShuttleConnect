@@ -1,0 +1,6 @@
+{
+  "name": "ShuttleConnect",
+  "description": "A lightweight, paper-styled badminton event-connection prototype for finding local games and players.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
