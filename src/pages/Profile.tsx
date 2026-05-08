@@ -156,6 +156,67 @@ export function ProfilePage({ user, onUpdateUser }: { user: Player, onUpdateUser
               </div>
             </section>
 
+            <section className="space-y-8">
+              <div className="flex items-baseline justify-between">
+                <h2 className="text-3xl font-display font-bold uppercase tracking-tighter">Combat Records</h2>
+                <div className="flex gap-2">
+                  <Badge variant="outline" className="bg-neon text-black border-none font-bold">WINS: {user.stats.wins}</Badge>
+                  <Badge variant="outline" className="bg-red-50 text-red-600 border-none font-bold">LOSS: {user.stats.losses}</Badge>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                {user.matches?.map((match) => (
+                  <div 
+                    key={match.id} 
+                    className="p-6 border border-paper-lines rounded-[2.5rem] bg-white group hover:border-black transition-all"
+                  >
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                      <div className="flex items-center gap-6">
+                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${
+                          match.result === 'Win' ? 'bg-neon shadow-lg shadow-neon/20' : 'bg-muted'
+                        }`}>
+                          <Award className={`w-6 h-6 ${match.result === 'Win' ? 'text-black' : 'text-muted-foreground'}`} />
+                        </div>
+                        <div>
+                          <div className="flex items-baseline gap-2">
+                            <h4 className="text-xl font-display font-black uppercase italic tracking-tight">{match.opponent}</h4>
+                            <span className={`text-[10px] font-display font-bold uppercase tracking-widest ${
+                              match.result === 'Win' ? 'text-neon' : 'text-red-500'
+                            }`}>
+                              [{match.result}]
+                            </span>
+                          </div>
+                          <p className="text-[10px] font-display font-bold uppercase tracking-widest opacity-40">
+                            {match.sport} • {match.date}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-8 md:text-right px-6 md:px-0">
+                        <div className="space-y-1">
+                          <p className="text-[9px] font-display font-bold uppercase tracking-widest opacity-30">Final Score</p>
+                          <p className="text-xl font-display font-black tracking-tighter">{match.score}</p>
+                        </div>
+                        <div className="space-y-1 hidden sm:block">
+                          <p className="text-[9px] font-display font-bold uppercase tracking-widest opacity-30">Intensity</p>
+                          <p className="text-xl font-display font-black tracking-tighter text-muted-foreground">{match.stats.duration}</p>
+                        </div>
+                        <div className="space-y-1 hidden md:block">
+                          <p className="text-[9px] font-display font-bold uppercase tracking-widest opacity-30">Points</p>
+                          <p className="text-xl font-display font-black tracking-tighter">
+                            <span className="text-neon">{match.stats.pointsWon}</span>
+                            <span className="opacity-20 mx-1">/</span>
+                            <span>{match.stats.pointsLost}</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
             <section className="space-y-6">
                <h2 className="text-3xl font-display font-bold uppercase tracking-tighter">Recent Sanctuary Visits</h2>
                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -164,9 +225,9 @@ export function ProfilePage({ user, onUpdateUser }: { user: Player, onUpdateUser
                        <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg">
                           <img src={venue.image} alt={venue.name} className="w-full h-full object-cover" />
                        </div>
-                       <div>
-                          <h4 className="font-display font-bold uppercase">{venue.name}</h4>
-                          <p className="text-[10px] font-display font-bold uppercase tracking-widest opacity-40">{venue.location}</p>
+                       <div className="flex-1 min-w-0">
+                          <h4 className="font-display font-bold uppercase truncate">{venue.name}</h4>
+                          <p className="text-[10px] font-display font-bold uppercase tracking-widest opacity-40 truncate">{venue.location}</p>
                        </div>
                     </div>
                   ))}

@@ -22,10 +22,10 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-paper-bg: #FFFFFF;
-  --color-paper-ink: #000000;
-  --color-neon: #CCFF00;
-  --color-paper-lines: rgba(0, 0, 0, 0.05);
+  --color-paper-bg: #FCFCFA;
+  --color-paper-ink: #0A0A0A;
+  --color-neon: #D9FF00;
+  --color-paper-lines: rgba(0, 0, 0, 0.08);
 
   --font-display: "Space Grotesk", sans-serif;
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;

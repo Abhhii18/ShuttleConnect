@@ -11,7 +11,36 @@ export const MOCK_PLAYERS: Player[] = [
     isElite: true,
     isVerified: true,
     preferredSports: ['Badminton', 'Tennis'],
-    stats: { wins: 45, losses: 12, streaks: 8 }
+    stats: { wins: 45, losses: 12, streaks: 8 },
+    matches: [
+      {
+        id: 'm1',
+        opponent: 'David Kim',
+        sport: 'Tennis',
+        date: 'Oct 20, 2024',
+        score: '6-4, 6-2',
+        result: 'Win',
+        stats: { duration: '1h 15m', pointsWon: 48, pointsLost: 32 }
+      },
+      {
+        id: 'm2',
+        opponent: 'Sarah Miller',
+        sport: 'Badminton',
+        date: 'Oct 18, 2024',
+        score: '21-19, 21-17',
+        result: 'Win',
+        stats: { duration: '45m', pointsWon: 42, pointsLost: 36 }
+      },
+      {
+        id: 'm3',
+        opponent: 'James Wilson',
+        sport: 'Tennis',
+        date: 'Oct 15, 2024',
+        score: '4-6, 5-7',
+        result: 'Loss',
+        stats: { duration: '1h 40m', pointsWon: 52, pointsLost: 60 }
+      }
+    ]
   },
   {
     id: 'p2',
@@ -47,11 +76,11 @@ export const MOCK_VENUES: Venue[] = [
     rating: 4.9,
     isVerified: true,
     isPartner: true,
-    image: 'https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=1200&h=800&fit=crop',
     images: [
-      'https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=1200&h=800&fit=crop'
     ],
     priceRange: '$$',
     availability: 'Open until 11 PM'
@@ -63,11 +92,11 @@ export const MOCK_VENUES: Venue[] = [
     rating: 4.7,
     isVerified: true,
     isPartner: false,
-    image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a4bd13?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a4bd13?w=1200&h=800&fit=crop',
     images: [
-      'https://images.unsplash.com/photo-1622279457486-62dcc4a4bd13?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1594470117722-de4b9a02ebed?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1563604859062-811eb11c039c?w=800&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1622279457486-62dcc4a4bd13?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1592709823125-a191f07a2a5e?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1563604859062-811eb11c039c?w=1200&h=800&fit=crop'
     ],
     priceRange: '$$$',
     availability: 'Members Only'
@@ -79,10 +108,10 @@ export const MOCK_VENUES: Venue[] = [
     rating: 4.5,
     isVerified: false,
     isPartner: true,
-    image: 'https://images.unsplash.com/photo-1587280508204-ad7ef28e3dac?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1541250848049-b4f71413cc30?w=1200&h=800&fit=crop',
     images: [
-      'https://images.unsplash.com/photo-1587280508204-ad7ef28e3dac?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1616429731117-640f0f4a8618?w=800&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1541250848049-b4f71413cc30?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1616429731117-640f0f4a8618?w=1200&h=800&fit=crop'
     ],
     priceRange: '$',
     availability: 'Available 24/7'

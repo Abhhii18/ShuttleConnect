@@ -38,9 +38,9 @@ export function VenuesPage() {
             className="group relative h-[400px] md:h-[500px] rounded-[3.5rem] overflow-hidden cursor-pointer shadow-xl"
           >
             <img src={venue.image} alt={venue.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/60 to-black/10 z-0" />
             
-            <div className="absolute top-8 right-8 flex gap-3">
+            <div className="absolute top-8 right-8 flex gap-3 z-10">
               {venue.images && venue.images.length > 1 && (
                 <div className="bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-[10px] font-display font-bold uppercase tracking-widest border border-white/20">
                   {venue.images.length} Photos
@@ -53,8 +53,8 @@ export function VenuesPage() {
               )}
             </div>
 
-            <div className="absolute bottom-6 md:bottom-10 left-6 md:left-10 right-6 md:right-10 flex flex-col md:flex-row md:items-end justify-between gap-4 text-white">
-              <div className="space-y-3">
+            <div className="absolute bottom-6 md:bottom-10 left-6 md:left-10 right-6 md:right-10 flex flex-col md:flex-row md:items-end justify-between gap-4 text-white z-10">
+              <div className="space-y-3 max-w-xl">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 fill-neon text-neon" />

@@ -68,10 +68,11 @@ export function SessionDetailsPage({ sessionId, sessions, currentUserId, onBack,
       </header>
 
       {/* Content */}
-      <main className="max-w-7xl mx-auto px-8 -mt-20 pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Main Info */}
-          <div className="lg:col-span-8 space-y-12">
+      <main className="max-w-7xl mx-auto px-4 md:px-8 -mt-16 md:-mt-24 pb-32 relative z-10">
+        <div className="bg-white rounded-[3rem] p-8 md:p-14 shadow-2xl shadow-black/5 border border-paper-lines">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Main Info */}
+            <div className="lg:col-span-8 space-y-12">
             <div className="space-y-6">
               <div className="flex flex-wrap items-center gap-3">
                 <Badge className="bg-neon text-black border-none px-4 py-1 font-display font-bold text-[10px] uppercase tracking-widest">{session.sport}</Badge>
@@ -83,7 +84,7 @@ export function SessionDetailsPage({ sessionId, sessions, currentUserId, onBack,
                 )}
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-display font-black tracking-tighter uppercase leading-[0.9]">{session.title}</h1>
+              <h1 className="text-4xl md:text-7xl font-display font-black tracking-tighter uppercase leading-[0.9] break-words">{session.title}</h1>
               
               <div className="flex flex-col md:flex-row md:items-center gap-8 py-6 border-y border-paper-lines">
                  <div className="flex items-center gap-3">
@@ -174,7 +175,7 @@ export function SessionDetailsPage({ sessionId, sessions, currentUserId, onBack,
                      <Button 
                       onClick={() => onLeave(sessionId)}
                       variant="outline"
-                      className="w-full h-16 border-white/20 text-white hover:bg-white/10 rounded-2xl font-display font-black text-lg transition-all"
+                      className="w-full h-16 border-white/20 text-white hover:bg-white/10 rounded-2xl font-display font-black text-lg transition-all bg-transparent"
                      >
                        Leave Protocol
                      </Button>
@@ -215,7 +216,8 @@ export function SessionDetailsPage({ sessionId, sessions, currentUserId, onBack,
              </div>
           </div>
         </div>
-      </main>
+      </div>
+    </main>
     </div>
   );
 }

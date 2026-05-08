@@ -18,6 +18,21 @@ export interface Player {
     losses: number;
     streaks: number;
   };
+  matches?: MatchRecord[];
+}
+
+export interface MatchRecord {
+  id: string;
+  opponent: string;
+  sport: SportType;
+  date: string;
+  score: string;
+  result: 'Win' | 'Loss';
+  stats: {
+    duration: string;
+    pointsWon: number;
+    pointsLost: number;
+  };
 }
 
 export interface Venue {

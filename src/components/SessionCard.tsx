@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Session, Player, Venue } from '../types';
 import { MapPin, Users, Zap, Clock, ShieldCheck } from 'lucide-react';
 import { Badge } from '@/components/ui';
@@ -15,8 +16,18 @@ export function SessionCard({ session, onClick }: SessionCardProps) {
   const venue = MOCK_VENUES.find(v => v.id === session.venueId);
 
   return (
-    <div
+    <motion.div
       onClick={onClick}
+      whileHover={{ y: -8, scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 30,
+        opacity: { duration: 0.2 }
+      }}
       className="group relative bg-white border border-paper-lines rounded-[2rem] p-6 hover:border-black transition-all cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-black/5"
     >
       {session.isBoosted && (
@@ -26,16 +37,16 @@ export function SessionCard({ session, onClick }: SessionCardProps) {
         </div>
       )}
 
-      <div className="flex justify-between items-start mb-6">
-        <div className="space-y-1">
-          <div className="flex items-center gap-2 text-[10px] font-display font-bold text-muted-foreground uppercase tracking-widest">
+      <div className="flex justify-between items-start mb-4">
+        <div className="space-y-1 pr-4">
+          <div className="flex flex-wrap items-center gap-2 text-[10px] font-display font-bold text-muted-foreground uppercase tracking-widest">
             {session.sport} 
             <span className="w-1 h-1 rounded-full bg-paper-lines" />
             Tier {session.reliabilityTier}
           </div>
-          <h3 className="text-2xl font-display font-bold group-hover:italic transition-all leading-tight">{session.title}</h3>
+          <h3 className="text-xl md:text-2xl font-display font-bold group-hover:italic transition-all leading-tight break-words line-clamp-2">{session.title}</h3>
         </div>
-        <Badge variant={session.level === 'Advanced' || session.level === 'Pro' ? 'default' : 'secondary'} className="rounded-lg h-8">
+        <Badge variant={session.level === 'Advanced' || session.level === 'Pro' ? 'default' : 'secondary'} className="rounded-lg h-8 shrink-0">
           {session.level}
         </Badge>
       </div>
@@ -65,7 +76,11 @@ export function SessionCard({ session, onClick }: SessionCardProps) {
                 className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-muted"
                 title={player?.name}
               >
-                <img src={player?.image} alt={player?.name} />
+                <img 
+                  src={player?.image || 'https://images.unsplash.com/photo-1549463266-96b1b681816f?w=100&h=100&fit=crop'} 
+                  alt={player?.name || 'Player'} 
+                  className="w-full h-full object-cover" 
+                />
               </div>
             );
           })}
@@ -92,6 +107,6 @@ export function SessionCard({ session, onClick }: SessionCardProps) {
           </span>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
